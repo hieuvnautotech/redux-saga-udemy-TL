@@ -1,5 +1,6 @@
 import React, {Fragment } from "react";
 import { Button, Form, Checkbox, Segment } from "semantic-ui-react";
+import ButtonOrCancel from './ButtonOrCancel'
 
 function NewEntryForm() {
     return (
@@ -27,11 +28,7 @@ function NewEntryForm() {
                 />
             </Segment>
 
-            <Button.Group>
-                <Button>Cancel</Button>
-                <Button.Or></Button.Or>
-                <Button>OK</Button>
-            </Button.Group>
+            <ButtonOrCancel/>
             
       </Form>
     );
