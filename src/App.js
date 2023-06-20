@@ -9,6 +9,10 @@ import NewEntryForm from './components/NewEntryForm'
 function App() {
   const [entries, setEntries] = useState(initialLines)
 
+  function addEntry(){
+    
+  }
+
   return (
     <Container>
       <MainHeader type="h1" title="Budget" />
