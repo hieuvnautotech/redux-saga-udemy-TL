@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { Container, Segment } from "semantic-ui-react";
+import MainHeader from './components/MainHeader'
+import DisplayBl from './components/DisplayBl'
+import DisplayBlNum from './components/DisplayBlNum'
+import EntryLines from './components/EntryLines'
+import NewEntryForm from './components/NewEntryForm'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <MainHeader type="h1" title='Budget' />
+      <DisplayBl title="Your Balance" value="12345" color="green" size="tiny" />
+      <DisplayBlNum />
+      <MainHeader type="h3" title='History' />
+      <EntryLines />
+      <MainHeader type="h3" title='Add New Transaction' />
+      <NewEntryForm/>
+    </Container>
   );
 }
 
