@@ -3,13 +3,18 @@ import { Button, Form, Checkbox, Segment } from "semantic-ui-react";
 import ButtonOrCancel from './ButtonOrCancel'
 import EntryForm from './EntryForm';
 
-function NewEntryForm() {
+function NewEntryForm({addEntry, isExpense, value, description, setDescription, setIsExpense, setValue}) {
     return (
       <Form unstackable>
-        
-            <EntryForm/>
-            <ButtonOrCancel/>
-            
+        <EntryForm
+          description={description}
+          setDescription={setDescription}
+          value={value}
+          setValue={setValue}
+          isExpense={isExpense}
+          setIsExpense={setIsExpense}
+        />
+        <ButtonOrCancel addEntry={addEntry} />
       </Form>
     );
 }

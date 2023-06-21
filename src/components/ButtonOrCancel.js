@@ -2,12 +2,14 @@ import React from 'react'
 import { Button, Form, Checkbox, Segment } from "semantic-ui-react";
 
 
-function ButtonOrCancel() {
+function ButtonOrCancel({addEntry}) {
   return (
     <Button.Group>
       <Button>Cancel</Button>
       <Button.Or></Button.Or>
-      <Button>OK</Button>
+      <Button
+        onClick={()=> addEntry()}
+      >OK</Button>
     </Button.Group>
   );
 }

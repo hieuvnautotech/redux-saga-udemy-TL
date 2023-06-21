@@ -1,10 +1,8 @@
 import React, {Fragment, useState} from 'react'
 import { Form, Container, Segment, Checkbox } from "semantic-ui-react";
 
-function EntryForm() {
-  const [description, setDescription] = useState("")
-  const [value, setValue] = useState("")
-  const [expense, setExpense] = useState(true)
+function EntryForm({isExpense, value, description, setDescription, setIsExpense, setValue}) {
+  
     return (
       <Fragment>
         <Form.Group>
@@ -28,7 +26,12 @@ function EntryForm() {
           />
         </Form.Group>
         <Segment compact>
-          <Checkbox label="Is Expense" toggle />
+          <Checkbox 
+          label="Is Expense" 
+          toggle 
+          checked={isExpense}
+          onChange={()=>setIsExpense((oldState) => !oldState)}
+          />
         </Segment>
       </Fragment>
     );
