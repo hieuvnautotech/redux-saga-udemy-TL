@@ -1,16 +1,19 @@
-import { useState} from 'react'
+import { useState, useEffect} from 'react'
 import { Container, Segment } from "semantic-ui-react";
 import MainHeader from './components/MainHeader'
 import DisplayBl from './components/DisplayBl'
 import DisplayBlNum from './components/DisplayBlNum'
 import EntryLines from './components/EntryLines'
 import NewEntryForm from './components/NewEntryForm'
+import ModalEdit from './components/ModalEdit'
 
 function App() {
   const [entries, setEntries] = useState(initialLines)
   const [description, setDescription] = useState('')
   const [value, setValue] = useState('')
   const [isExpense, setIsExpense] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
+  const [entryId, setEntryId] = useState('')
 
   function addEntry(){
     const result = entries.concat(
@@ -34,16 +37,58 @@ function App() {
     setEntries(result)
   }
 
+  function editEntry(id){
+    console.log(`id là ${id}`)
+    if(id){
+      const index = entries.findIndex(entry => entry.id === id)
+      const entry = entries[index];
+      setEntryId(id)
+      setDescription(entry.description)
+      setValue(entry.value)
+      setIsExpense(entry.isExpense)
+      setIsOpen(true)
+       
+      
+    }
+  }
+
+  useEffect(() => {
+    if(!isOpen && entryId){
+      const index = entries.findIndex(entry => entry.id === entryId)
+      const newEntries = [...entries]
+      newEntries[index].description = description
+      newEntries[index].value = value
+      newEntries[index].isExpense = isExpense
+      setEntries(newEntries)
+      resetEntry()
+    }
+  }, [isOpen]);
+
+  function resetEntry(){
+    setDescription('')
+      setValue('')
+      setIsExpense(true)
+  }
   return (
     <Container>
       <MainHeader type="h1" title="Budget" />
       <DisplayBl title="Your Balance" value="12345" color="green" size="tiny" />
       <DisplayBlNum />
       <MainHeader type="h3" title="History" />
-      <EntryLines entries={entries} deleteEntry={deleteEntry} />
+      <EntryLines entries={entries} deleteEntry={deleteEntry} editEntry={editEntry} setIsOpen={setIsOpen}/>
       <MainHeader type="h3" title="Add New Transaction" />
       <NewEntryForm 
         addEntry={addEntry} 
+        description={description}
+        setDescription={setDescription}
+        value={value}
+        setValue={setValue}
+        isExpense={isExpense}
+        setIsExpense={setIsExpense}
+        />
+        <ModalEdit 
+        isOpen={isOpen} 
+        setIsOpen={setIsOpen}
         description={description}
         setDescription={setDescription}
         value={value}
