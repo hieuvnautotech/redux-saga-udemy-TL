@@ -1,0 +1,24 @@
+{
+    "entries":[
+        {
+            "id":3,
+            "description":"bbb"
+        },
+        {
+            "id":4,
+            "description":"power bill"
+        }
+    ],
+    "values":[
+        {
+            "id":3,
+            "value":"5022",
+            "isExpense":true
+        },
+        {
+            "id":4,
+            "value":"50",
+            "isExpense":false
+        }
+    ]
+}
