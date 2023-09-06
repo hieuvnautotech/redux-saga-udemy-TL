@@ -13,3 +13,17 @@ export default types
 export const addEntryRedux = (payload) => {
     return {type: types.ADD_ENTRY, payload}
 }
+
+export const getAllEntries = () => {
+    return {
+      type: types.GET_ENTRIES
+    }
+  }
+
+  export const populateEntries = (entries) => {
+    return {type: types.POPULATE_ENTRIES, payload: entries}
+  }
+  
+  export const populateEntryDetails = (id, entry) => {
+    return {type: types.POPULATE_ENTRY_DETAILS, payload: {id, entry}}
+  }
