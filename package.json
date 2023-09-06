@@ -26,8 +26,6 @@
     "eject": "react-scripts eject",
     "backend": "json-server --watch db.json --port 3002",
     "start:all": "concurrently \"yarn start\" \"yarn backend\""
-
-
   },
   "eslintConfig": {
     "extends": [

@@ -6,82 +6,85 @@ import DisplayBlNum from './components/DisplayBlNum'
 import EntryLines from './components/EntryLines'
 import NewEntryForm from './components/NewEntryForm'
 import ModalEdit from './components/ModalEdit'
+import { useDispatch, useSelector } from "react-redux";
 
 
 
 function App() {
 
-  const [entries, setEntries] = useState(initialLines)
+  const entries = useSelector((state) => state.entries);
+  // const [entries, setEntries] = useState(initialLines)
   const [description, setDescription] = useState('')
   const [value, setValue] = useState('')
   const [isExpense, setIsExpense] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
   const [entryId, setEntryId] = useState('')
 
-  function addEntry(){
-    const result = entries.concat(
-      {
-        id: entries.length +1,
-        description,
-        value,
-        isExpense,
+  // function addEntry(){
+  //   const result = entries.concat(
+  //     {
+  //       id: entries.length +1,
+  //       description,
+  //       value,
+  //       isExpense,
         
-      },
-    );
-    console.log(`result`,result)
-    setEntries(result)
-  }
+  //     },
+  //   );
+  //   console.log(`result`,result)
+  //   setEntries(result)
+  // }
 
-  function deleteEntry(id) {
-    const result = entries.filter((entry) => entry.id !== id)
-    console.log(`entries`,entries)
-    console.log(`result`,result)
-    console.log(`id`,id)
-    setEntries(result)
-  }
+  // function deleteEntry(id) {
+  //   const result = entries.filter((entry) => entry.id !== id)
+  //   console.log(`entries`,entries)
+  //   console.log(`result`,result)
+  //   console.log(`id`,id)
+  //   setEntries(result)
+  // }
 
-  function editEntry(id){
-    console.log(`id là ${id}`)
-    if(id){
-      const index = entries.findIndex(entry => entry.id === id)
-      const entry = entries[index];
-      setEntryId(id)
-      setDescription(entry.description)
-      setValue(entry.value)
-      setIsExpense(entry.isExpense)
-      setIsOpen(true)
+  // function editEntry(id){
+  //   console.log(`id là ${id}`)
+  //   if(id){
+  //     const index = entries.findIndex(entry => entry.id === id)
+  //     const entry = entries[index];
+  //     setEntryId(id)
+  //     setDescription(entry.description)
+  //     setValue(entry.value)
+  //     setIsExpense(entry.isExpense)
+  //     setIsOpen(true)
        
       
-    }
-  }
+  //   }
+  // }
 
-  useEffect(() => {
-    if(!isOpen && entryId){
-      const index = entries.findIndex(entry => entry.id === entryId)
-      const newEntries = [...entries]
-      newEntries[index].description = description
-      newEntries[index].value = value
-      newEntries[index].isExpense = isExpense
-      setEntries(newEntries)
-      resetEntry()
-    }
-  }, [isOpen]);
+  // useEffect(() => {
+  //   if(!isOpen && entryId){
+  //     const index = entries.findIndex(entry => entry.id === entryId)
+  //     const newEntries = [...entries]
+  //     newEntries[index].description = description
+  //     newEntries[index].value = value
+  //     newEntries[index].isExpense = isExpense
+  //     setEntries(newEntries)
+  //     resetEntry()
+  //   }
+  // }, [isOpen]);
 
-  function resetEntry(){
-    setDescription('')
-      setValue('')
-      setIsExpense(true)
-  }
+  // function resetEntry(){
+  //   setDescription('')
+  //     setValue('')
+  //     setIsExpense(true)
+  // }
   return (
     <Container>
       <MainHeader type="h1" title="Budget" />
       <DisplayBl title="Your Balance" value="12345" color="green" size="tiny" />
       <DisplayBlNum />
       <MainHeader type="h3" title="History" />
-      <EntryLines entries={entries} deleteEntry={deleteEntry} editEntry={editEntry} setIsOpen={setIsOpen}/>
+      {/*  deleteEntry={deleteEntry} editEntry={editEntry} setIsOpen={setIsOpen} */}
+      <EntryLines entries={entries}/> 
       <MainHeader type="h3" title="Add New Transaction" />
       <NewEntryForm 
-        addEntry={addEntry} 
+        // addEntry={addEntry} 
         description={description}
         setDescription={setDescription}
         value={value}
