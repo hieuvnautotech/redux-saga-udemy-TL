@@ -7,7 +7,10 @@ import EntryLines from './components/EntryLines'
 import NewEntryForm from './components/NewEntryForm'
 import ModalEdit from './components/ModalEdit'
 
+
+
 function App() {
+
   const [entries, setEntries] = useState(initialLines)
   const [description, setDescription] = useState('')
   const [value, setValue] = useState('')
