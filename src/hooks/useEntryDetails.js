@@ -9,6 +9,12 @@ function useEntryDetails(desc='', val='', isExp=true){
     const [isExpense, setIsExpense] = useState(isExp);
     const dispatch = useDispatch()
 
+    useEffect(()=>{
+        setDescription(desc)
+        setValue(val)
+        setIsExpense(isExpense)
+      },[desc, val, isExp])
+
     function addEntry() { 
         dispatch(addEntryRedux({
           id: uuidv4(),
