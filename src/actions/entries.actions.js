@@ -8,6 +8,8 @@ const types = {
   REMOVE_ENTRY: "REMOVE_ENTRY",
   UPDATE_ENTRY: "UPDATE_ENTRY",
   REMOVE_ENTRY_RESULT: "REMOVE_ENTRY_RESULT",
+  ADD_ENTRY_RESULT: 'ADD_ENTRY_RESULT',
+
 };
 export default types;
 
@@ -15,6 +17,11 @@ export default types;
 export const addEntryRedux = (payload) => {
   return { type: types.ADD_ENTRY, payload };
 };
+
+// khai báo delete
+export const removeEntryRedux = (id) => {
+  return {type: types.REMOVE_ENTRY, payload: {id}}
+}
 
 export const getAllEntries = () => {
   return {

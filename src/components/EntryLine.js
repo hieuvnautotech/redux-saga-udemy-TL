@@ -1,23 +1,34 @@
-import React from 'react'
-import { Segment, Grid, Icon } from "semantic-ui-react";
+import React, { useState} from 'react'
+import { Container, Segment, Grid, Icon } from 'semantic-ui-react'
+import { useDispatch} from 'react-redux'
+import { removeEntryRedux} from '../actions/entries.actions'
+// import {openEditModal} from '../actions/modals.actions'
 
-
-function EntryLine({id, value, description, isExpense, deleteEntry, editEntry}) {
+function EntryLine({ id, description, value, isExpense = false}) {
+             
+            
+  const dispatch = useDispatch()
+  // dispatch({type: 'TEST_MESSAGE'})
   return (
-    <Segment color={isExpense? 'green' : 'red'}>
-      <Grid columns={3}>
-        <Grid.Row>
-          <Grid.Column textAlign="left">{description}</Grid.Column>
+    <Container>
+      <Segment color={isExpense ? "red" : "green"}>
+        <Grid columns={3} textAlign="right">
+          <Grid.Row>
+            <Grid.Column width={10} textAlign="left">
+              {description}
+            </Grid.Column>
+            <Grid.Column width={3} textAlign="right">
+              {value}
+            </Grid.Column>
+            <Grid.Column width={3}>
+              {/* <Icon name="edit" bordered onClick={ ()=> dispatch(openEditModal(id))} /> */}
+              <Icon name="trash" bordered onClick={() => dispatch(removeEntryRedux(id))} />
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Segment>
 
-          <Grid.Column textAlign="center">{value}</Grid.Column>
-
-          <Grid.Column textAlign="right">
-            <Icon name="trash" bordered onClick={()=>deleteEntry(id)} />
-            <Icon name="edit" bordered onClick={()=>editEntry(id)}/>
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-    </Segment>
+    </Container>
   );
 }
 
