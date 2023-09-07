@@ -3,6 +3,7 @@ import entriesTypes from '../actions/entries.actions'
 import axios from 'axios'
 import {populateEntries, populateEntryDetails} from '../actions/entries.actions'
 
+//saga để lấy all list
 export function* getAllEntries() {
     yield take(entriesTypes.GET_ENTRIES);
     console.log('entriesSaga')
