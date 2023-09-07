@@ -5,8 +5,8 @@
             "description":"bbb"
         },
         {
-            "id":4,
-            "description":"power bill"
+            "id":1,
+            "description":"power bill2"
         }
     ],
     "values":[
@@ -16,8 +16,8 @@
             "isExpense":true
         },
         {
-            "id":4,
-            "value":"50",
+            "id":1,
+            "value":"220",
             "isExpense":false
         }
     ]
