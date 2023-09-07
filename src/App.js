@@ -7,6 +7,7 @@ import EntryLines from './components/EntryLines'
 import NewEntryForm from './components/NewEntryForm'
 import ModalEdit from './components/ModalEdit'
 import { useDispatch, useSelector } from "react-redux";
+import {getAllEntries} from './actions/entries.actions'
 
 
 
@@ -74,6 +75,13 @@ function App() {
   //     setValue('')
   //     setIsExpense(true)
   // }
+
+  const dispatch = useDispatch()
+  useEffect(() => {
+    // fetchInitialData()
+    dispatch(getAllEntries())
+  },[dispatch])
+  
   return (
     <Container>
       <MainHeader type="h1" title="Budget" />
@@ -108,23 +116,23 @@ function App() {
 
 export default App;
 
-var initialLines = [
-  {
-    id: 1,
-    description: "aaa",
-    value: "555",
-    isExpense: false,
-  },
-  {
-    id: 2,
-    description: "a2a",
-    value: "444",
-    isExpense: false,
-  },
-  {
-    id: 3,
-    description: "44a",
-    value: "666",
-    isExpense: false,
-  },
-];
+// var initialLines = [
+//   {
+//     id: 1,
+//     description: "aaa",
+//     value: "555",
+//     isExpense: false,
+//   },
+//   {
+//     id: 2,
+//     description: "a2a",
+//     value: "444",
+//     isExpense: false,
+//   },
+//   {
+//     id: 3,
+//     description: "44a",
+//     value: "666",
+//     isExpense: false,
+//   },
+// ];

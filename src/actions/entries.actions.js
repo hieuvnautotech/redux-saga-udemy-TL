@@ -1,3 +1,5 @@
+import {getEntryDetails} from '../sagas/entriesSaga'
+
 const types = {
   GET_ENTRIES: "GET_ENTRIES",
   POPULATE_ENTRIES: "POPULATE_ENTRIES",
@@ -13,11 +15,11 @@ export default types;
 //   return { type: types.ADD_ENTRY, payload };
 // };
 
-// export const getAllEntries = () => {
-//   return {
-//     type: types.GET_ENTRIES,
-//   };
-// };
+export const getAllEntries = () => {
+  return {
+    type: types.GET_ENTRIES,
+  };
+};
 
 // export const populateEntries = (entries) => {
 //   return { type: types.POPULATE_ENTRIES, payload: entries };
