@@ -1,24 +1,33 @@
 {
-    "entries":[
-        {
-            "id":3,
-            "description":"bbb"
-        },
-        {
-            "id":1,
-            "description":"power bill2"
-        }
-    ],
-    "values":[
-        {
-            "id":3,
-            "value":"5022",
-            "isExpense":true
-        },
-        {
-            "id":1,
-            "value":"220",
-            "isExpense":false
-        }
-    ]
+  "entries": [
+    {
+      "id": 3,
+      "description": "bbb"
+    },
+    {
+      "id": 1,
+      "description": "power bill2"
+    },
+    {
+      "id": "28a3a6b0-8da7-4747-a1e9-1be6938ed639",
+      "description": "cccss"
+    }
+  ],
+  "values": [
+    {
+      "id": 3,
+      "value": "5022",
+      "isExpense": true
+    },
+    {
+      "id": 1,
+      "value": "220",
+      "isExpense": false
+    },
+    {
+      "id": "28a3a6b0-8da7-4747-a1e9-1be6938ed639",
+      "isExpense": true,
+      "value": "22"
+    }
+  ]
 }

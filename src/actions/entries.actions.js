@@ -11,9 +11,10 @@ const types = {
 };
 export default types;
 
-// export const addEntryRedux = (payload) => {
-//   return { type: types.ADD_ENTRY, payload };
-// };
+// khai báo add ra
+export const addEntryRedux = (payload) => {
+  return { type: types.ADD_ENTRY, payload };
+};
 
 export const getAllEntries = () => {
   return {
