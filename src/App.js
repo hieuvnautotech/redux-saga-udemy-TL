@@ -18,7 +18,8 @@ function App() {
   const [description, setDescription] = useState('')
   const [value, setValue] = useState('')
   const [isExpense, setIsExpense] = useState(false)
-  const [isOpen, setIsOpen] = useState(false)
+  const {isOpen, id} = useSelector((state) => state.modals);
+  const [entry, setEntry] = useState()
   const [entryId, setEntryId] = useState('')
 
   // function addEntry(){
@@ -92,23 +93,10 @@ function App() {
       <EntryLines entries={entries}/> 
       <MainHeader type="h3" title="Add New Transaction" />
       <NewEntryForm 
-        // addEntry={addEntry} 
-        description={description}
-        setDescription={setDescription}
-        value={value}
-        setValue={setValue}
-        isExpense={isExpense}
-        setIsExpense={setIsExpense}
         />
         <ModalEdit 
-        isOpen={isOpen} 
-        setIsOpen={setIsOpen}
-        description={description}
-        setDescription={setDescription}
-        value={value}
-        setValue={setValue}
-        isExpense={isExpense}
-        setIsExpense={setIsExpense}
+        isOpen={isOpen}
+        {...entry}
         />
     </Container>
   );

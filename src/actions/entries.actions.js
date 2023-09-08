@@ -23,6 +23,13 @@ export const removeEntryRedux = (id) => {
   return {type: types.REMOVE_ENTRY, payload: {id}}
 }
 
+// khai báo update
+export const updateEntryRedux = (id, entry) => {
+  return {
+    type: types.UPDATE_ENTRY, payload: {id, entry}
+  }
+}
+
 export const getAllEntries = () => {
   return {
     type: types.GET_ENTRIES,
