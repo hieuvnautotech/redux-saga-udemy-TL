@@ -6,7 +6,7 @@ export function* addEntrySaga() {
     yield takeLatest(entriesTypes.ADD_ENTRY, addEntryToDb);
   }
 
-  function* addEntryToDb({payload}) {
+function* addEntryToDb({payload}) {
     console.log('addEntry', payload)
     yield call(addEntry, payload);
     yield call(addEntryDetails, payload);
@@ -29,3 +29,4 @@ export function* addEntrySaga() {
       value,
     });
   }
+

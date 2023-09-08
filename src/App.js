@@ -22,6 +22,11 @@ function App() {
   const [entry, setEntry] = useState()
   const [entryId, setEntryId] = useState('')
 
+  useEffect(() => {
+    const index = entries.findIndex(entry => entry.id === id);
+    setEntry(entries[index])
+  }, [isOpen, id, entries]);
+
   // function addEntry(){
   //   const result = entries.concat(
   //     {

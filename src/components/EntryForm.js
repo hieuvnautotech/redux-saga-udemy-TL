@@ -1,40 +1,44 @@
-import React, {Fragment, useState} from 'react'
-import { Form, Container, Segment, Checkbox } from "semantic-ui-react";
+import React, { useState, Fragment} from 'react'
+import { Form, Segment, Checkbox} from 'semantic-ui-react'
 
-function EntryForm({isExpense, value, description, setDescription, setIsExpense, setValue}) {
-  
-    return (
-      <Fragment>
-        <Form.Group>
-          <Form.Input
-            placeholder="New"
-            icon="tags"
-            width={12}
-            label="Description"
-            value={description}
-            onChange={(e)=>setDescription(e.target.value)}
-          />
-
-          <Form.Input
-            placeholder="Value"
-            icon="dollar"
-            width={4}
-            label="Description"
-            iconPosition="left"
-            value={value}
-            onChange={(e)=>setValue(e.target.value)}
-          />
-        </Form.Group>
-        <Segment compact>
-          <Checkbox 
-          label="Is Expense" 
-          toggle 
+function EntryForm({
+  description,
+  value,
+  isExpense,
+  setDescription,
+  setValue,
+  setIsExpense}) {
+  return (
+    <Fragment>
+      <Form.Group>
+        <Form.Input
+          icon="tags"
+          placeholder="New shinny thing"
+          width={12}
+          label="Description"
+          value={description}
+          onChange={(event) => setDescription(event.target.value)}
+        />
+        <Form.Input
+          width={4}
+          label="Value"
+          placeholder="100"
+          icon="dollar"
+          iconPosition="left"
+          value={value}
+          onChange={(event) => setValue(event.target.value)}
+        />
+      </Form.Group>
+      <Segment compact>
+        <Checkbox
           checked={isExpense}
-          onChange={()=>setIsExpense((oldState) => !oldState)}
-          />
-        </Segment>
-      </Fragment>
-    );
+          toggle
+          label="is Expense"
+          onChange={() => setIsExpense((oldState) => !oldState)}
+        />
+      </Segment>
+    </Fragment>
+  );
 }
 
 export default EntryForm

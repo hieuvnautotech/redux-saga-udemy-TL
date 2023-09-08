@@ -1,9 +1,10 @@
 import {applyMiddleware, createStore, combineReducers} from 'redux'
-import {composeWithDevTools} from 'redux-devtools-extension'
-import createSagaMiddleware from 'redux-saga'
-import {initSagas} from '../sagas/index'
 import entriesReducer from '../reducers/entries.reducers'
+import {composeWithDevTools} from 'redux-devtools-extension'
 import modalsReducer from '../reducers/modals.reducers'
+import createSagaMiddleware from 'redux-saga'
+// import {count, testSaga} from '../sagas/testSaga'
+import {initSagas} from '../sagas/index'
 
 const sagaMiddleware = createSagaMiddleware()
 const middlewares = [sagaMiddleware]
