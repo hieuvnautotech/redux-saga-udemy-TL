@@ -7,14 +7,14 @@ import EntryLines from './components/EntryLines'
 import NewEntryForm from './components/NewEntryForm'
 import ModalEdit from './components/ModalEdit'
 import { useDispatch, useSelector } from "react-redux";
-import {getAllEntries} from './actions/entries.actions'
+// import {getAllEntries} from './actions/entries.actions'
 
 
 
 function App() {
 
-  const entries = useSelector((state) => state.entries);
-  // const [entries, setEntries] = useState(initialLines)
+  // const entries = useSelector((state) => state.entries);
+  const [entries, setEntries] = useState(initialLines)
   const [description, setDescription] = useState('')
   const [value, setValue] = useState('')
   const [isExpense, setIsExpense] = useState(false)
@@ -76,11 +76,11 @@ function App() {
   //     setIsExpense(true)
   // }
 
-  const dispatch = useDispatch()
-  useEffect(() => {
-    // fetchInitialData()
-    dispatch(getAllEntries())
-  },[dispatch])
+  // const dispatch = useDispatch()
+  // useEffect(() => {
+  //   // fetchInitialData()
+  //   dispatch(getAllEntries())
+  // },[dispatch])
   
   return (
     <Container>
@@ -116,23 +116,23 @@ function App() {
 
 export default App;
 
-// var initialLines = [
-//   {
-//     id: 1,
-//     description: "aaa",
-//     value: "555",
-//     isExpense: false,
-//   },
-//   {
-//     id: 2,
-//     description: "a2a",
-//     value: "444",
-//     isExpense: false,
-//   },
-//   {
-//     id: 3,
-//     description: "44a",
-//     value: "666",
-//     isExpense: false,
-//   },
-// ];
+var initialLines = [
+  {
+    id: 1,
+    description: "aaa",
+    value: "555",
+    isExpense: false,
+  },
+  {
+    id: 2,
+    description: "a2a",
+    value: "444",
+    isExpense: false,
+  },
+  {
+    id: 3,
+    description: "44a",
+    value: "666",
+    isExpense: false,
+  },
+];
