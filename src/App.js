@@ -116,23 +116,23 @@ function App() {
 
 export default App;
 
-// var initialLines = [
-//   {
-//     id: 1,
-//     description: "aaa",
-//     value: "555",
-//     isExpense: false,
-//   },
-//   {
-//     id: 2,
-//     description: "a2a",
-//     value: "444",
-//     isExpense: false,
-//   },
-//   {
-//     id: 3,
-//     description: "44a",
-//     value: "666",
-//     isExpense: false,
-//   },
-// ];
+var initialLines = [
+  {
+    id: 1,
+    description: "aaa",
+    value: "555",
+    isExpense: false,
+  },
+  {
+    id: 2,
+    description: "a2a",
+    value: "444",
+    isExpense: false,
+  },
+  {
+    id: 3,
+    description: "44a",
+    value: "666",
+    isExpense: false,
+  },
+];

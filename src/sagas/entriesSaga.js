@@ -6,5 +6,5 @@ export function* getAllEntries() {
     yield take(entriesTypes.GET_ENTRIES);
     console.log('entriesSaga')
     const {data} = yield call (axios, 'http://localhost:3002/entries')
-    console.log('entriesSaga',data)
+    console.log('entriesSaga',data) // chỗ này dag console log thôi, nếu muốn show ra UI phải thêm function populateEntries
 }
